@@ -3,16 +3,14 @@
 namespace SistemaBiblioteca
 {
     internal class Program
-    {
-        static string separacao = "-------------------------------------";
+    {     
         static bool executando = true;
         static async Task Main(string[] args)
         {
             while (executando)
             {
                 Console.WriteLine("=====Sistema de Biblioteca=====");
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("""
+                Servicos.Dialogos("""
                     :::Escolha uma opção::: 
                     1. Adicionar Livro
                     2. Remover Livro
@@ -21,50 +19,47 @@ namespace SistemaBiblioteca
                     5. Emprestar Livro
                     6. Devolver Livro
                     7. Sair
-                    """);
-                Console.ResetColor();
-                Console.WriteLine(separacao);
+                    """, ConsoleColor.DarkCyan);
+                Servicos.Separacao();
 
-                int escolha  = Convert.ToInt32(Console.ReadLine());
+                var escolha  = Console.ReadLine();
 
                 switch (escolha)
                 {
-                    case 1:
-                        Console.WriteLine(separacao);
+                    case "1":
+                        Servicos.Separacao();
                         Servicos.AdicionarLivro();
                         break;
-                    case 2:
-                        Console.WriteLine(separacao);
+                    case "2":
+                        Servicos.Separacao();
                         Servicos.RemoverLivro();
                         break;
-                    case 3:
-                        Console.WriteLine(separacao);
+                    case "3":
+                        Servicos.Separacao();
                         Servicos.ListarLivros();
                         break;
-                    case 4:
-                        Console.WriteLine(separacao);
+                    case "4":
+                        Servicos.Separacao();
                         Servicos.PesquisarLivro();
                         break;
-                    case 5:
-                        Console.WriteLine(separacao);
+                    case "5":
+                        Servicos.Separacao();
                         Servicos.EmprestarLivro();
                         break;
-                    case 6:
-                        Console.WriteLine(separacao);
+                    case "6":
+                        Servicos.Separacao();
                         Servicos.DevolverLivro();
                         break;
-                    case 7:
-                        Console.WriteLine(separacao);
-                        Console.WriteLine("Saindo do sistema em 3s...");
+                    case "7":
+                        Servicos.Separacao();
+                        Servicos.Dialogos("\nSaindo do sistema em 3s...\n", ConsoleColor.Magenta);
                         await Task.Delay(3000);
                         executando = false;
                         break;
                     default:
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\nOpção inválida! Tente Novamente.\n");
-                        Console.ResetColor();
+                        Servicos.Dialogos("\nOpção inválida! Tente Novamente.\n", ConsoleColor.Magenta);
                         break;
-                }
+                }               
             }
         }
     }

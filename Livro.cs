@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-
-namespace SistemaBiblioteca
+﻿namespace SistemaBiblioteca
 {
     public class Livro
     {
@@ -9,15 +7,16 @@ namespace SistemaBiblioteca
         public  string _autorLivro { get; set; }
         public  int _anoPublicacaoLivro { get; set; }
         public string _codigoLivro { get; set; }
-        public bool _disponivel { get; set; }
-
+        public bool _disponibilidade{ get; set; }
+               
         //construtor
-        public Livro(string tituloLivro, string autorLivro, int anoPublicacaoLivro, string codigoLivro)
+        public Livro(string tituloLivro, string autorLivro, int anoPublicacaoLivro, string codigoLivro, bool disponibilidade)
         {
             _tituloLivro = tituloLivro;
             _autorLivro = autorLivro;
             _anoPublicacaoLivro = anoPublicacaoLivro;
             _codigoLivro = codigoLivro;
+            _disponibilidade = disponibilidade;
         }
     }
 }
