@@ -289,8 +289,6 @@
                 return;
             }
 
-
-
             if (livroEncontrado._disponibilidade)
             {
                 Console.WriteLine($"Livro {livroEncontrado._tituloLivro}, código {livroEncontrado._codigoLivro} disponível na biblioteca!");
